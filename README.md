@@ -64,6 +64,7 @@ git remote add origin <URL>
 git remote remove <nome>
 git remote show <nome>
 
+
 ``` 
 
 | Aulas | Resumos |
@@ -163,6 +164,85 @@ O comando git push é usado no Git para enviar as alterações locais em um repo
 git push -u origin main
 
 ```
+Alterações do repositório remoto para o repositório local:
+
+O comando git pull é usado para atualizar seu repositório local com as alterações do repositório remoto. Em essência, ele combina dois outros comandos do Git: git fetch e git merge.
+
+```
+git pull
+
+```
+
+| Aulas | Resumos |
+|-------|---------|
+|Trabalhando com Branches, Criando, Mesclando, Deletando e Tratando Conflitos | [Resumos]()|
+
+De maneira simplista, uma Branch (em tradução, "Ramo"), é uma ramificação do seu projeto.
+É um ponteiro móvel para um commit no histórico do repositório;
+Quando você cria uma nova Branch a partir de outra existente, a nova se inicia apontando para um mesmo commit da Branch que estava quando foi criada.
+
+O comando git checkout -b é usado para criar e mudar para uma nova branch em um repositório Git. Ele combina duas operações: criação de uma nova branch e a mudança imediata para essa nova branch.
+
+```
+git checkout -b <nome_da_nova_branch>
+
+```
+
+Obs: Quando nos criamos uma branch dentro de uma já existente, essa nova passa a apontar para o mesmo commit da onde ela originou.
+
+```
+git checkout <nome_da_branch_de_"origem">
+
+```
+Obs: Criada o arquivo na branch nova, ela não vai aparecer na branch de origem.
+Caso queira que as alterações da branch nova apareram na branch de origem, precisamos MESCLAR elas.
+
+```
+git merge <nome_da_nova_branch>
+
+```
+
+Para deletar uma branch:
+
+```
+git branch -d <nome_da_branch>
+
+```
+
+| Aulas | Resumos |
+|-------|---------|
+|Trabalhando com Branches - Comandos Úteis no Dia a Dia | [Resumos]()|
+
+git fetch: Ele busca todas as atualizações do repositório remoto, mas não as mescla em seu repositório local. Isso atualiza suas referências locais para as branches remotas, permitindo que você veja o que mudou no repositório remoto sem fazer nenhuma alteração em seu trabalho atual.
+
+git merge (ou git rebase, dependendo das configurações padrão): Após o git fetch, o git pull faz uma mesclagem automática das alterações buscadas com a branch em que você está trabalhando atualmente. Ele tenta fundir as alterações do repositório remoto em sua branch local.
+
+```
+git fetch origin <nome_do_repositório_remoto>
+
+git merge origin <branch_para_a_mesclagem>
+
+```
+Clonando um repositório selecionando apenas uma branch especifica:
+
+```
+git clone <URL> --branch <nome_da_branch> --single-branch
+
+```
+
+O comando git stash é usado para temporariamente armazenar mudanças não comprometidas (alterações no código que você ainda não confirmou usando git commit). Isso pode ser útil quando você precisa alternar rapidamente entre branches, mas não deseja comprometer suas alterações em andamento.
+
+```
+git stash
+git stash list
+git stash pop
+git stash apply
+
+```
+
+
+
 
 ## Referências
 - [Digital Innovation One]().
+- [https://github.com/elidianaandrade/dio-curso-git-github/blob/main/materiais-de-apoio/04-dicas-e-materiais-de-apoio.md]().
